@@ -29,9 +29,17 @@ export function handleMove(from,to){
     
 }
 
-export function move(from, to){
+export function move(from, to, promotion){
+    
     console.log(from, to);
-    const legalMove = chess.move({from, to});
+
+    let tempMove = {from, to};
+    
+    if(promotion){
+        tempMove.promotion = promotion;
+    }
+
+    const legalMove = chess.move(tempMove);
 
     if(legalMove){
        console.log(chess.fen());
