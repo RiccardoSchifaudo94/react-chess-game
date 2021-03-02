@@ -34,7 +34,7 @@ export function move(from, to){
     const legalMove = chess.move({from, to});
 
     if(legalMove){
-        console.log(chess.fen());
+       console.log(chess.fen());
        updateGame();
     }
 }   

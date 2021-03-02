@@ -3,6 +3,7 @@ import Square from './Square';
 import Piece from "./Piece";
 import { useDrop } from 'react-dnd';
 import { handleMove, gameSubject } from "./Game";
+import Promote from "./Promote";
 
 export default function BoardSquare({ piece , black, position }) {
     
@@ -28,7 +29,7 @@ export default function BoardSquare({ piece , black, position }) {
     return (
       <div className="board-square" ref={drop}>
           <Square black={black}>
-              { piece && <Piece piece={piece} position={position} /> }
+            { promotion ? <Promote promotion={promotion}/> : piece ? <Piece piece={piece} position={position} /> : null }
           </Square>
       </div>
     )
