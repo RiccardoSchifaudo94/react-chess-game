@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import './App.css';
-import { gameSubject, initGame, resetGame } from './Game';
+import { gameSubject, initGame, resetGame, register_moves, backMove } from './Game';
 import Board from './Board';
 
 function App() {
@@ -23,6 +23,7 @@ function App() {
   },[]);
 
   return (
+    <>
     <div className="container">
       {
         isGameOver && 
@@ -38,11 +39,26 @@ function App() {
       }
       <div className="board-container">
           <Board board = {board} turn={turn}/>
+        
       </div>
       {
         result && <p className="vertical-text">{result}</p>
       }
     </div>
+    <div className="nav-game">
+              <button onClick={resetGame}>+ Restart Game</button>
+              <button onClick={backMove}> Back</button>
+    </div>
+   {/* <div className="table-moves">
+          <ol>
+            {
+              register_moves.map(element => (
+               <li>{element}</li> 
+              ))
+            }
+          </ol>
+          </div> */}
+   </>
   );
 }
 

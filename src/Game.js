@@ -3,6 +3,7 @@ import { BehaviorSubject } from 'rxjs';
 
 
 const chess = new Chess();
+export const register_moves = [];
 
 export const gameSubject = new BehaviorSubject({
     board:chess.board()
@@ -21,6 +22,23 @@ export function initGame(){
 
 export function resetGame(){
     chess.reset();
+    updateGame();
+}
+
+export function backMove(){
+    
+    register_moves.pop();
+    
+    if(register_moves.length<1){
+        chess.reset();
+    }
+    
+    else{ 
+        let last_move = register_moves[register_moves.length-1];
+        chess.load(last_move);
+    }
+    
+   
     updateGame();
 }
 
@@ -53,7 +71,7 @@ export function move(from, to, promotion){
     const legalMove = chess.move(tempMove);
 
     if(legalMove){
-       console.log(chess.fen());
+       register_moves.push(chess.fen());
        updateGame();
     }
 }   

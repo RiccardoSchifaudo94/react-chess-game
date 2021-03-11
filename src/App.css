@@ -2,6 +2,16 @@
   margin: 0;
   padding: 0;
 }
+button{
+  background-color: rgb(63,63,63);
+  color: white;
+  padding: 10px;
+  border: none;
+  border-bottom: 3px solid black;
+  border-radius: 4px;
+  outline: none;
+  font-family: sans-serif;
+}
 .container{
   min-height: 100vh;
   display: flex;
@@ -65,4 +75,10 @@
   background-color: rgb(63,63,63);
   border: 2px solid white;
   border-radius: 10px;
+}
+.nav-game {
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
